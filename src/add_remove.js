@@ -10,7 +10,7 @@ function addTask(taskArray) {
   inputList.value = '';
 }
 
-function editTask(icon, text, i) {
+function editTask(icon, text, task) {
   const trashIcon = icon.nextSibling;
   icon.addEventListener('click', () => {
     text.setAttribute('contenteditable', 'true');
@@ -18,10 +18,10 @@ function editTask(icon, text, i) {
     icon.style.display = 'none';
     trashIcon.style.display = 'block';
     const data = JSON.parse(localStorage.getItem('tasks'));
-    data[i].description = text.innerHTML;
+    data[task].description = text.innerHTML;
     text.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
-        data[i].description = text.innerHTML;
+        data[task].description = text.innerHTML;
         localStorage.setItem('tasks', JSON.stringify(data));
         trashIcon.style.display = 'none';
         icon.style.display = 'block';
@@ -32,8 +32,8 @@ function editTask(icon, text, i) {
   });
 }
 
-function deleteTask(taskArray, i) {
-  taskArray.splice(i, 1);
+function deleteTask(taskArray, delTask) {
+  taskArray = taskArray.filter((task) => task.index !== delTask.index);
   taskArray.forEach((task) => {
     task.index = taskArray.indexOf(task) + 1;
   });
