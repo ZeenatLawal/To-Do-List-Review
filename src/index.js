@@ -50,7 +50,9 @@ function displayTasks() {
     }
 
     // Edit task
-    editTask(editIcon, para, myTask);
+    editIcon.addEventListener('click', () => {
+      editTask(para, myTask, myTasks, trashIcon, editIcon);
+    });
 
     trashIcon.addEventListener('click', () => {
       deleteTask(myTasks, myTask);
