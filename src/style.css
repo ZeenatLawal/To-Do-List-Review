@@ -18,22 +18,21 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-#inputList {
-  outline: none;
-  border: none;
-  font-size: 1rem;
-  font-style: italic;
-  opacity: 0.6;
-  width: 100%;
-}
-
+#inputList,
 .inputEdit {
   outline: none;
   border: none;
   font-size: 1rem;
   font-style: italic;
-  opacity: 0.8;
   width: 100%;
+}
+
+#inputList{
+  opacity: 0.6;
+}
+
+.inputEdit {
+  opacity: 0.8;
   background-color: rgb(240, 218, 190);
 }
 
@@ -83,6 +82,5 @@ input {
 .far:hover,
 .clear-all a:hover {
   text-decoration: underline;
-  color: black;
   opacity: 0.8;
 }
